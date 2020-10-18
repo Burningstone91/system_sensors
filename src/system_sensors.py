@@ -203,7 +203,7 @@ def send_config_message(mqttClient):
     mqttClient.publish(
         topic=f"homeassistant/sensor/{deviceName}/{deviceName}Temp/config",
         payload='{"device_class":"temperature",'
-                + f"\"name\":\"{deviceName} Temperature\","
+                + f"\"name\":\"Temperature {deviceName}\","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                 + '"unit_of_measurement":"°C",'
                 + '"value_template":"{{value_json.temperature}}",'
@@ -217,7 +217,7 @@ def send_config_message(mqttClient):
     )
     mqttClient.publish(
         topic=f"homeassistant/sensor/{deviceName}/{deviceName}DiskUse/config",
-        payload=f"{{\"name\":\"{deviceName} DiskUse\","
+        payload=f"{{\"name\":\"Disk use pct {deviceName}\","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                 + '"unit_of_measurement":"%",'
                 + '"value_template":"{{value_json.disk_use}}",'
@@ -231,7 +231,7 @@ def send_config_message(mqttClient):
     )
     mqttClient.publish(
         topic=f"homeassistant/sensor/{deviceName}/{deviceName}MemoryUse/config",
-        payload=f"{{\"name\":\"{deviceName} MemoryUse\","
+        payload=f"{{\"name\":\"RAM use pct {deviceName}\","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                 + '"unit_of_measurement":"%",'
                 + '"value_template":"{{value_json.memory_use}}",'
@@ -245,7 +245,7 @@ def send_config_message(mqttClient):
     )
     mqttClient.publish(
         topic=f"homeassistant/sensor/{deviceName}/{deviceName}CpuUsage/config",
-        payload=f"{{\"name\":\"{deviceName} CpuUsage\","
+        payload=f"{{\"name\":\"CPU Load {deviceName}\","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                 + '"unit_of_measurement":"%",'
                 + '"value_template":"{{value_json.cpu_usage}}",'
@@ -259,7 +259,7 @@ def send_config_message(mqttClient):
     )
     mqttClient.publish(
         topic=f"homeassistant/sensor/{deviceName}/{deviceName}SwapUsage/config",
-        payload=f"{{\"name\":\"{deviceName} SwapUsage\","
+        payload=f"{{\"name\":\"Swap use pct {deviceName}\","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                 + '"unit_of_measurement":"%",'
                 + '"value_template":"{{value_json.swap_usage}}",'
@@ -274,7 +274,7 @@ def send_config_message(mqttClient):
     mqttClient.publish(
         topic=f"homeassistant/binary_sensor/{deviceName}/{deviceName}PowerStatus/config",
         payload='{"device_class":"problem",'
-                + f"\"name\":\"{deviceName} UnderVoltage\","
+                + f"\"name\":\"UnderVoltage {deviceName} \","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                 + '"value_template":"{{value_json.power_status}}",'
                 + f"\"unique_id\":\"{deviceName.lower()}_sensor_power_status\","
@@ -294,7 +294,7 @@ def send_config_message(mqttClient):
     mqttClient.publish(
         topic=f"homeassistant/sensor/{deviceName}/{deviceName}LastBoot/config",
         payload='{"device_class":"timestamp",'
-                + f"\"name\":\"{deviceName} LastBoot\","
+                + f"\"name\":\"Last Boot {deviceName}\","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                 + '"value_template":"{{value_json.last_boot}}",'
                 + f"\"unique_id\":\"{deviceName.lower()}_sensor_last_boot\","
@@ -307,7 +307,7 @@ def send_config_message(mqttClient):
     )
 
     mqttClient.publish(
-        topic=f"homeassistant/sensor/{deviceName}/{deviceName}LastMessage/config",
+        topic=f"homeassistant/sensor/Last Message {deviceName}/{deviceName}/config",
         payload='{"device_class":"timestamp",'
                 + f"\"name\":\"{deviceName} LastMessage\","
                 + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
@@ -328,7 +328,7 @@ def send_config_message(mqttClient):
         else:
             mqttClient.publish(
                 topic=f"homeassistant/sensor/{deviceName}/{deviceName}Updates/config",
-                payload=f"{{\"name\":\"{deviceName} Updates\","
+                payload=f"{{\"name\":\"Updates {deviceName}\","
                         + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                         + '"value_template":"{{value_json.updates}}",'
                         + f"\"unique_id\":\"{deviceName.lower()}_sensor_updates\","
@@ -344,7 +344,7 @@ def send_config_message(mqttClient):
         mqttClient.publish(
             topic=f"homeassistant/sensor/{deviceName}/{deviceName}WifiStrength/config",
             payload='{"device_class":"signal_strength",'
-                    + f"\"name\":\"{deviceName} WifiStrength\","
+                    + f"\"name\":\"WifiStrength {deviceName}\","
                     + f"\"state_topic\":\"system-sensors/sensor/{deviceName}/state\","
                     + '"unit_of_measurement":"dBm",'
                     + '"value_template":"{{value_json.wifi_strength}}",'
